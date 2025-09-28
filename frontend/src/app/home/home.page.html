@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>EnergoFish</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="!isLoggedIn" (click)="login()">
+        Bejelentkezés
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Keresés..."
+      [(ngModel)]="searchText"
+      name="searchText"
+      (ionInput)="onSearch()">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (searchText){
+      <p>Keresés: {{ searchText }}</p>
+  }
+  <app-upload></app-upload>
+</ion-content>
+
+
