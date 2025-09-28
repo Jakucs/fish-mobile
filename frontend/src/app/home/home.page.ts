@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { 
   IonHeader, 
   IonToolbar, 
@@ -26,7 +25,6 @@ import { UploadComponent } from '../upload/upload.component';
     IonButton,
     FormsModule,
     CommonModule,
-    HttpClientModule,
     UploadComponent
   ]
 })
@@ -42,6 +40,7 @@ export class HomePage {
 
   login() {
     console.log('Bejelentkezés gomb megnyomva');
+    // we need authapi service
     this.isLoggedIn = true;
   }
 }
