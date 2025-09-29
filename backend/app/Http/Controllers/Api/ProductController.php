@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Resources\Product as ProductResource;
 
-class ProductController extends Controller
+class ProductController extends ResponseController
 {
         public function getProducts()
     {
