@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Type;
 
 class TypeController extends Controller
 {
@@ -24,7 +25,7 @@ class TypeController extends Controller
         return $type;
     }
 
-    public function modifyType(Request $request, $id){
+    public function updateType(Request $request, $id){
         $type=Type::find($id);
         $type->type = $request["type"];
         $type->update();

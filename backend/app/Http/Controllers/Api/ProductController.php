@@ -11,8 +11,8 @@ class ProductController extends Controller
 {
         public function getProducts()
     {
-        $products = Product::all();
-        return $products;
+        $products = Product::with("type")->get();
+        return ProductResource::collection($products);
     }
 
 

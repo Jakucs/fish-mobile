@@ -17,6 +17,6 @@ Route::delete ("/destroyproducts/{id}", [ProductController::class, "destroyProdu
 
 Route::get ("/types", [TypeController::class, "getTypes"]);
 Route::get ("/type", [TypeController::class, "getType"]);
-Route::post ("/newptypes", [TypeController::class, "newType"]);
-Route::put ("/updatetypes/{id}", [TypeController::class, "updateType"]);
-Route::delete ("/destroytypes/{id}", [TypeController::class, "destroytype"]);
+Route::post ("/newtype", [TypeController::class, "newType"]);
+Route::put ("/updatetype/{id}", [TypeController::class, "updateType"]);
+Route::delete ("/destroytype/{id}", [TypeController::class, "destroyType"]);
