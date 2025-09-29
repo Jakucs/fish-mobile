@@ -14,3 +14,9 @@ Route::get ("/products", [ProductController::class, "getProducts"]);
 Route::post ("/newproducts", [ProductController::class, "newProduct"]);
 Route::put ("/updateproducts/{id}", [ProductController::class, "updateProduct"]);
 Route::delete ("/destroyproducts/{id}", [ProductController::class, "destroyProduct"]);
+
+Route::get ("/types", [TypeController::class, "getTypes"]);
+Route::get ("/type", [TypeController::class, "getType"]);
+Route::post ("/newptypes", [TypeController::class, "newType"]);
+Route::put ("/updatetypes/{id}", [TypeController::class, "updateType"]);
+Route::delete ("/destroytypes/{id}", [TypeController::class, "destroytype"]);

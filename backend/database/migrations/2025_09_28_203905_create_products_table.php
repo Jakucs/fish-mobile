@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('type_id'); // kell az UNSIGNED
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->integer('price');
             $table->string('image');
             $table->integer('stock');
             $table->timestamps();
+            $table->engine = 'InnoDB'; // biztos, ami biztos
         });
     }
 
