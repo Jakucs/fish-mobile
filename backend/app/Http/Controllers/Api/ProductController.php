@@ -6,17 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Http\Resources\Product as ProductResource;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends ResponseController
 {
         public function getProducts()
     {
         $products = Product::with("type")->get();
-        return ProductResource::collection($products);
+        return $this->sendResponse(ProductResource::collection($products), "Adat betöltve");
     }
 
 
-        public function newProduct(Request $request){
+        public function newProduct(ProductRequest $request){
+        $request->validated();
         $product = new Product();
         $product->name = $request["name"]; 
         $product->description = $request["description"];
@@ -25,11 +27,12 @@ class ProductController extends ResponseController
         $product->image	= $request["image"];
         $product->stock = $request["stock"];
         $product->save();
-        return $product;
+        return response(new ProductResource($product), 200);
     }
 
 
-        public function updateProduct(Request $request, $id){
+        public function updateProduct(ProductRequest $request, $id){
+        $request->validated();
         $product = Product::find($id);
         $product->name = $request["name"]; 
         $product->description = $request["description"];
