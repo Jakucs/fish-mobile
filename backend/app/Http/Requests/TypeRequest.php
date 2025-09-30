@@ -24,7 +24,7 @@ class TypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "type" => "required|max:20"
+            "type" => "required|min:3|max:20|unique"
         ];
     }
 
@@ -35,5 +35,14 @@ class TypeRequest extends FormRequest
         "errors" => $validator->errors(),
         "message" => "Adatbeviteli hiba"
     ]));
+    }
+
+        public function messages(){
+        return [
+            "type.required" => "Típus megadása szükséges",
+            "type.min" => "Típus minimum 3 karakter kell legyen",
+            "type.max" => "Típus maximum 20 karakter kell legyen",
+            "type.unique" => "Ez a típus már létezik"
+        ];
     }
 }
