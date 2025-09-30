@@ -16,6 +16,17 @@ class ProductController extends ResponseController
         return $this->sendResponse(ProductResource::collection($products), "Adat betöltve");
     }
 
+        public function getProduct(Request $request){
+        $product = Product::where("name", $request["name"])->first();
+        if(is_null($product)){
+            return $this->sendError("Adathiba", ["Nincs ilyen termék"]);
+        }
+        else
+        {
+            return $this->sendResponse(new ProductResource($product), "Adat betöltve");
+        }
+    }
+
 
         public function newProduct(ProductRequest $request){
         $request->validated();
@@ -27,28 +38,40 @@ class ProductController extends ResponseController
         $product->image	= $request["image"];
         $product->stock = $request["stock"];
         $product->save();
-        return response(new ProductResource($product), 200);
+        return $this->sendResponse(new ProductResource($product), "Sikeres felvitel!");
     }
 
 
         public function updateProduct(ProductRequest $request, $id){
         $request->validated();
         $product = Product::find($id);
-        $product->name = $request["name"]; 
-        $product->description = $request["description"];
-        $product->category = $request["category"];
-        $product->price = $request["price"];
-        $product->image	= $request["image"];
-        $product->stock = $request["stock"];
-        $product->save();
-        return $product;
+        if(is_null($product)){
+            return $this->sendError("Adathiba", ["Nincs ilyen termék"]);
+        }
+        else{
+            $product->name = $request["name"]; 
+            $product->description = $request["description"];
+            $product->category = $request["category"];
+            $product->price = $request["price"];
+            $product->image	= $request["image"];
+            $product->stock = $request["stock"];
+            $product->save();
+            return $this->sendResponse(new ProductResource($product), "Sikeres módosítás");
+        }
+
     }
 
 
     	public function destroyProduct ($id){
         $product = Product::find ($id);
-        $product->delete();
-        return $product;
+        if(is_null($product)){
+            return $this->sendError("Adathiba", ["Nincs ilyen termék"]);
+        }
+        else{
+            $product->delete();
+        }
+
+        return $this->sendResponse(new ProductResource($product), "Termék törölve");
     }
 
 
