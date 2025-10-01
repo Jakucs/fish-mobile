@@ -1,0 +1,17 @@
+<!-- search.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Keresés</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Keresés..."
+      [(ngModel)]="searchText"
+      (ionInput)="onSearch()">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>Keresés tartalom</p>
+</ion-content>

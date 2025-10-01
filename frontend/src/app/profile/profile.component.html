@@ -1,0 +1,10 @@
+<div *ngIf="isLoggedIn; else notLogged">
+  <p>Üdv, {{ userName }}!</p>
+  <button (click)="logout()">Kijelentkezés</button>
+</div>
+
+<ng-template #notLogged>
+  <p>Kérlek, jelentkezz be a profil megtekintéséhez.</p>
+</ng-template>
+
+<h1>HELLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</h1>
