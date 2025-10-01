@@ -10,6 +10,7 @@ import {
   IonButton,
 } from '@ionic/angular/standalone';
 import { UploadComponent } from '../upload/upload.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +33,7 @@ export class HomePage {
   searchText: string = '';
   isLoggedIn = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   onSearch() {
     console.log('Keresett kifejezés:', this.searchText);
@@ -40,7 +41,7 @@ export class HomePage {
 
   login() {
     console.log('Bejelentkezés gomb megnyomva');
-    // we need authapi service
+    this.router.navigate([{outlets: {top: 'login' }}]); //navigálás a regisztrációs oldalra
     this.isLoggedIn = true;
   }
 }

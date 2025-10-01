@@ -2,9 +2,12 @@
   <ion-toolbar>
     <ion-title>EnergoFish</ion-title>
     <ion-buttons slot="end">
-      <ion-button *ngIf="!isLoggedIn" (click)="login()">
-        Bejelentkezés
+      @if (!isLoggedIn){
+      <ion-button (click)="login()">
+          Bejelentkezés
       </ion-button>
+      }
+
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar>
@@ -21,7 +24,7 @@
   @if (searchText){
       <p>Keresés: {{ searchText }}</p>
   }
-  <app-upload></app-upload>
+  <!--<app-upload></app-upload>-->
 </ion-content>
 
 

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Cím -->
+  <ion-text class="ion-text-center">
+    <h1>Login to your account</h1>
+  </ion-text>
+
+  <form>
+
+    <!-- E-mail -->
+    <ion-item class="ion-no-padding">
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+
+    <!-- Jelszó -->
+    <ion-item class="ion-no-padding">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+
+    <!-- Elfelejtett jelszó -->
+    <ion-text class="ion-text-end ion-margin-top">
+      <a routerLink="/forgot-password">Forgot Password?</a>
+    </ion-text>
+
+    <!-- Login gomb -->
+    <ion-button expand="block" type="submit" class="ion-margin-top">
+      Login
+    </ion-button>
+
+  </form>
+
+  <!-- Alternatív lehetőségek -->
+  <ion-text color="medium" class="ion-text-center ion-margin-top">
+    <p>or</p>
+  </ion-text>
+
+  <!-- Sign in with Apple -->
+  <ion-button fill="outline" expand="block" class="ion-margin-bottom">
+    <ion-icon slot="start" name="logo-apple"></ion-icon>
+    Sign in with Apple
+  </ion-button>
+
+  <!-- Sign in with Google -->
+  <ion-button fill="outline" expand="block" class="ion-margin-bottom">
+    <ion-icon slot="start" name="logo-google"></ion-icon>
+    Sign in with Google
+  </ion-button>
+
+  <!-- Nincs még fiókod? -->
+  <ion-text color="medium" class="ion-text-center">
+    <p>
+      Don't have an account?
+      <a routerLink="/register">Create account</a>
+    </p>
+  </ion-text>
+
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Cím -->
+  <ion-text class="ion-text-center">
+    <h1>Create account</h1>
+  </ion-text>
+
+  <form>
+
+    <!-- E-mail -->
+    <ion-item class="ion-no-padding">
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="email" required></ion-input>
+    </ion-item>
+
+    <!-- Jelszó -->
+    <ion-item class="ion-no-padding">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+
+    <!-- Confirm Password -->
+    <ion-item class="ion-no-padding">
+      <ion-label position="floating">Confirm your password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+
+    <!-- Checkbox Privacy Policy -->
+    <ion-item lines="none">
+      <ion-checkbox slot="start" required></ion-checkbox>
+      <span>
+        I agree with the <a routerLink="/privacy-policy">Privacy Policy</a>
+      </span>
+    </ion-item>
+
+    <!-- Sign Up gomb -->
+    <ion-button expand="block" type="submit" class="ion-margin-top">
+      Sign up
+    </ion-button>
+
+  </form>
+
+  <!-- Alternatív lehetőségek -->
+  <ion-text color="medium" class="ion-text-center ion-margin-top">
+    <p>or</p>
+  </ion-text>
+
+  <!-- Sign up with Apple -->
+  <ion-button fill="outline" expand="block" class="ion-margin-bottom">
+    <ion-icon slot="start" name="logo-apple"></ion-icon>
+    Sign up with Apple
+  </ion-button>
+
+  <!-- Sign up with Google -->
+  <ion-button fill="outline" expand="block" class="ion-margin-bottom">
+    <ion-icon slot="start" name="logo-google"></ion-icon>
+    Sign up with Google
+  </ion-button>
+
+  <!-- Már van fiókod? -->
+  <ion-text color="medium" class="ion-text-center">
+    <p>
+      Do you have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </ion-text>
+
+</ion-content>
