@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { IonicModule } from '@ionic/angular';
-import { logoApple, logoGoogle } from 'ionicons/icons';
 import { Authapi } from '../shared/authapi';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ReactiveFormsModule
-  ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonicModule, CommonModule, FormsModule]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterPage implements OnInit {
+
   errorMessageFromBackend!: any;
   registerForm!: FormGroup;
   showErrorCard: boolean = false;
@@ -75,4 +70,5 @@ export class RegisterComponent implements OnInit {
       */
     })
   }
+
 }

@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Productapi } from '../shared/productapi';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { IonicModule } from '@ionic/angular';
+import { Productapi } from '../shared/productapi';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss'],
+  templateUrl: './product-list.page.html',
+  styleUrls: ['./product-list.page.scss'],
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ReactiveFormsModule
-  ]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonicModule, CommonModule, FormsModule]
 })
-export class ProductListComponent  implements OnInit {
+export class ProductListPage implements OnInit {
 
   productList: any[] = []
 

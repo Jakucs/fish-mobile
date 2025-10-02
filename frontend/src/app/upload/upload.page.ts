@@ -1,17 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { IonicModule } from '@ionic/angular';
 import { Cloudinaryapi } from '../shared/cloudinaryapi';
 
 @Component({
   selector: 'app-upload',
+  templateUrl: './upload.page.html',
+  styleUrls: ['./upload.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule],
-  templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.scss'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonicModule, CommonModule, FormsModule]
 })
-export class UploadComponent  implements OnInit {
+export class UploadPage implements OnInit {
 
   selectedFile: File | null = null;
   uploadUrl: string = '';
@@ -42,4 +43,5 @@ export class UploadComponent  implements OnInit {
     });
 
   }
+
 }

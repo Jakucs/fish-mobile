@@ -1,44 +1,59 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { TabsPage } from './tabs/tabs.page';
 
 export const routes: Routes = [
   {
     path: 'tabs',
-    loadComponent: () => import('./tabs/tabs.page').then(m => m.TabsPage),
+    component: TabsPage,
     children: [
       {
         path: 'home',
-        loadComponent: () => import('./home/home.page').then(m => m.HomePage)
+        loadComponent: () =>
+          import('./home/home.page').then(m => m.HomePage)
       },
       {
         path: 'search',
-        loadComponent: () => import('./search/search.component').then(m => m.SearchComponent)
+        loadComponent: () =>
+          import('./search/search.page').then(m => m.SearchPage)
       },
       {
         path: 'sell',
-        loadComponent: () => import('./sell/sell.component').then(m => m.SellComponent)
+        loadComponent: () =>
+          import('./sell/sell.page').then(m => m.SellPage)
       },
       {
-        path: 'messages',
-        loadComponent: () => import('./chat/chat.component').then(m => m.ChatComponent)
+        path: 'chat',
+        loadComponent: () =>
+          import('./chat/chat.page').then(m => m.ChatPage)
       },
       {
         path: 'profile',
-        loadComponent: () => import('./profile/profile.component').then(m => m.ProfileComponent)
+        loadComponent: () =>
+          import('./profile/profile.page').then(m => m.ProfilePage)
       },
       {
         path: '',
-        redirectTo: 'home',   // itt elég a relatív útvonal
+        redirectTo: '/tabs/home',
         pathMatch: 'full'
       }
-    ]
+    ],
+  },
+  {
+    path: 'upload',
+    loadComponent: () =>
+      import('./upload/upload.page').then(m => m.UploadPage)
   },
   {
     path: '',
     redirectTo: '/tabs/home',
     pathMatch: 'full'
   },
-  {
-    path: 'profile2',
-    loadComponent: () => import('./profile2/profile2.page').then( m => m.Profile2Page)
-  }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)], // fontos: fő app.routes-hez forRoot kell
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
